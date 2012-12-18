@@ -30,12 +30,4 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "No puedes eliminarte a ti mismo"
     end
   end
-  
-  def profile
-    if signed_in?
-            redirect_to user_path :action => "show", :id => current_user.id
-        else
-            redirect_to root_url
-        end
-  end
 end
