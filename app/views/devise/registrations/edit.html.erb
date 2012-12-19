@@ -7,6 +7,8 @@
   		<%= display_base_errors resource %>
   		<%= f.input :name, :autofocus => true, label: "Nombre" %>
   		<%= f.input :email, :required => true %>
+        <%= f.input :city, label: "Ciudad" %>
+        <%=	f.input :phone, label: "Teléfono", as: :string %>
   		<%= f.input :password, :autocomplete => "off", :hint => "déjalo en blanco si no quieres cambiarlo", :required => false %>
   		<%= f.input :password_confirmation, :required => false, label: "Confirmar Password" %>
   		<%= f.input :current_password, :hint => "se necesita tu password actual para realizar los cambios", :required => true %>
