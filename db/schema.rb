@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219174524) do
+ActiveRecord::Schema.define(:version => 20121219175341) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20121219174524) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "categories_states", :id => false, :force => true do |t|
+    t.integer "Category_id"
+    t.integer "State_id"
+  end
+
+  add_index "categories_states", ["Category_id"], :name => "index_categories_states_on_Category_id"
+  add_index "categories_states", ["State_id"], :name => "index_categories_states_on_State_id"
 
   create_table "discount_clubs", :force => true do |t|
     t.string   "name"
@@ -78,13 +86,10 @@ ActiveRecord::Schema.define(:version => 20121219174524) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "states", :force => true do |t|
-    t.integer  "category_id"
     t.string   "name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "states", ["category_id"], :name => "index_states_on_category_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

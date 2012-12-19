@@ -14,4 +14,7 @@
 
 class Discount < ActiveRecord::Base
   attr_accessible :conditions, :discount, :discount_club_id, :price, :venue_id
+
+  belongs_to :discount_club
+  belongs_to :venue
 end

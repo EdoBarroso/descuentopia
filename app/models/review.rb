@@ -13,4 +13,7 @@
 
 class Review < ActiveRecord::Base
   attr_accessible :comment, :stars
+
+  belongs_to :user
+  belongs_to :venue
 end

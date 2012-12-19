@@ -12,4 +12,9 @@
 
 class Venue < ActiveRecord::Base
   attr_accessible :city, :name
+
+  has_many :reviews
+  has_many :discounts
+  belongs_to :category
+
 end

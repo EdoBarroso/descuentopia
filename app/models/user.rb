@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :city, :phone
 
   has_and_belongs_to_many :discount_clubs
+  has_many :reviews
   validates_numericality_of :phone, only_integer: true
   
 end
