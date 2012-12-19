@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219145013) do
+ActiveRecord::Schema.define(:version => 20121219191352) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "categories_states", :id => false, :force => true do |t|
+    t.integer "Category_id"
+    t.integer "State_id"
+  end
+
+  add_index "categories_states", ["Category_id"], :name => "index_categories_states_on_Category_id"
+  add_index "categories_states", ["State_id"], :name => "index_categories_states_on_State_id"
 
   create_table "discount_clubs", :force => true do |t|
     t.string   "name"
@@ -27,12 +42,37 @@ ActiveRecord::Schema.define(:version => 20121219145013) do
   add_index "discount_clubs_users", ["discount_club_id"], :name => "index_discount_clubs_users_on_discount_club_id"
   add_index "discount_clubs_users", ["user_id"], :name => "index_discount_clubs_users_on_user_id"
 
+  create_table "discounts", :force => true do |t|
+    t.integer  "discount_club_id"
+    t.integer  "venue_id"
+    t.string   "conditions"
+    t.integer  "price"
+    t.string   "discount"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "discounts", ["discount_club_id"], :name => "index_discounts_on_discount_club_id"
+  add_index "discounts", ["venue_id"], :name => "index_discounts_on_venue_id"
+
   create_table "parameters", :force => true do |t|
     t.text     "content"
     t.integer  "discount_club_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "venue_id"
+    t.integer  "user_id"
+    t.integer  "stars"
+    t.string   "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
+  add_index "reviews", ["venue_id"], :name => "index_reviews_on_venue_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -44,6 +84,12 @@ ActiveRecord::Schema.define(:version => 20121219145013) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -72,5 +118,15 @@ ActiveRecord::Schema.define(:version => 20121219145013) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "venues", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.string   "city"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "venues", ["category_id"], :name => "index_venues_on_category_id"
 
 end
