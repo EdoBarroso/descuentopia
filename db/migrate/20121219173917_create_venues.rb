@@ -1,7 +1,7 @@
 class CreateVenues < ActiveRecord::Migration
   def change
     create_table :venues do |t|
-      t.references :category
+      t.references :Category
       t.string :name
       t.string :city
 
