@@ -7,6 +7,8 @@
   <%= f.input :email, :required => true %>
   <%= f.input :password, :required => true %>
   <%= f.input :password_confirmation, :required => true, label: "Confirmar password" %>
+  <%= f.input :city, label: "Ciudad" %>
+  <%= f.input :phone, label: "Teléfono", as: :string %>
   <%= f.button :submit, 'Registrar', :class => 'btn-primary' %>
 <% end %>
 <%= render "devise/shared/links" %>
