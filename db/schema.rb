@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219175341) do
+ActiveRecord::Schema.define(:version => 20121219190616) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -120,13 +120,13 @@ ActiveRecord::Schema.define(:version => 20121219175341) do
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
   create_table "venues", :force => true do |t|
-    t.integer  "category_id"
+    t.integer  "Category_id"
     t.string   "name"
     t.string   "city"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "venues", ["category_id"], :name => "index_venues_on_category_id"
+  add_index "venues", ["Category_id"], :name => "index_venues_on_category_id"
 
 end
