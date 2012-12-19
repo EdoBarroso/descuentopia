@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217141414) do
+ActiveRecord::Schema.define(:version => 20121219145013) do
+
+  create_table "discount_clubs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "discount_clubs_users", :id => false, :force => true do |t|
+    t.integer "discount_club_id"
+    t.integer "user_id"
+  end
+
+  add_index "discount_clubs_users", ["discount_club_id"], :name => "index_discount_clubs_users_on_discount_club_id"
+  add_index "discount_clubs_users", ["user_id"], :name => "index_discount_clubs_users_on_user_id"
+
+  create_table "parameters", :force => true do |t|
+    t.text     "content"
+    t.integer  "discount_club_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -38,6 +59,8 @@ ActiveRecord::Schema.define(:version => 20121217141414) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.string   "city"
+    t.integer  "phone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
