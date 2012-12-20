@@ -16,6 +16,4 @@ class Discount < ActiveRecord::Base
   attr_accessible :conditions, :discount, :price
   belongs_to :discount_club
   belongs_to :venue
-
-  validates [:discount_club_id, :venue_id], presence: true
 end
