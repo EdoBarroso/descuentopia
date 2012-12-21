@@ -23,12 +23,7 @@
 class User < ActiveRecord::Base
   rolify
 
-  after_create :default_role
-
-  private
-  def default_role
-    self.roles << Role.first
-  end
+  after_create :default_role, :default_discount_club
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -43,5 +38,14 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :discount_clubs
   has_many :reviews
   validates_numericality_of :phone, only_integer: true, allow_blank: true
+
+  private
+  def default_role
+    self.roles << Role.first
+  end
+  #For development purposes only. It should be deprecated before launching the final version
+  def default_discount_club
+    self.discount_clubs << DiscountClub.first
+  end
   
 end
