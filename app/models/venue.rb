@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: venues
+# Table name: discounts
 #
 #  id               :integer          not null, primary key
 #  category_id      :integer
@@ -15,7 +15,7 @@ class Venue < ActiveRecord::Base
   attr_accessible :city, :name
 
   has_many :reviews
-  has_many :discounts
+  has_many :discounts, dependent: :destroy
   belongs_to :category
   belongs_to :discount_club
 

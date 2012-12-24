@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(:version => 20121223231214) do
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
-  create_table "venues", :force => true do |t|
+  create_table "discounts", :force => true do |t|
     t.integer  "category_id"
     t.string   "name"
     t.string   "city"
