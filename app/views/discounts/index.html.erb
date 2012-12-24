@@ -1,9 +1,10 @@
-<h3>Mis Descuentos</h3>
+<h3>Mis Descuentos
+<% if can? :create, @discount %>
+    <%= link_to("Crear", new_discount_path, :class => 'btn btn-mini') %>
+<% end %>
+</h3>
 <% @discount_club.each do |t| %>
     <%= t.name %>
-    <% if can? :create, @discount %>
-        <%= link_to("Crear", new_discount_path, :class => 'btn btn-mini') %>
-    <% end %>
     <ul>
     <% t.discounts.each do |j| %>
           <li>
