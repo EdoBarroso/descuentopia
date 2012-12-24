@@ -1,0 +1,12 @@
+<h3>Mis Descuentos</h3>
+<% @discount_club.each do |t| %>
+    <%= t.name %>
+    <ul>
+    <% t.discounts.each do |j| %>
+          <li>
+            <%= j.venue_name %>
+            <%= simple_format j.conditions %>
+          </li>
+    <% end %>
+    </ul>
+<% end %>

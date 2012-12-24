@@ -36,8 +36,11 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :city, :phone
 
   has_and_belongs_to_many :discount_clubs
+  has_many :venues, through: :discount_clubs
   has_many :reviews
   validates_numericality_of :phone, only_integer: true, allow_blank: true
+
+  delegate :venue, :to => :discounts , prefix: true
 
   private
   def default_role

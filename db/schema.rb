@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219191352) do
+ActiveRecord::Schema.define(:version => 20121223231214) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -43,16 +43,14 @@ ActiveRecord::Schema.define(:version => 20121219191352) do
   add_index "discount_clubs_users", ["user_id"], :name => "index_discount_clubs_users_on_user_id"
 
   create_table "discounts", :force => true do |t|
-    t.integer  "discount_club_id"
     t.integer  "venue_id"
     t.string   "conditions"
     t.integer  "price"
     t.string   "discount"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "discounts", ["discount_club_id"], :name => "index_discounts_on_discount_club_id"
   add_index "discounts", ["venue_id"], :name => "index_discounts_on_venue_id"
 
   create_table "parameters", :force => true do |t|
@@ -123,8 +121,9 @@ ActiveRecord::Schema.define(:version => 20121219191352) do
     t.integer  "category_id"
     t.string   "name"
     t.string   "city"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "discount_club_id"
   end
 
   add_index "venues", ["category_id"], :name => "index_venues_on_category_id"

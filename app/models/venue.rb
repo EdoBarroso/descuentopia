@@ -2,12 +2,13 @@
 #
 # Table name: venues
 #
-#  id          :integer          not null, primary key
-#  category_id :integer
-#  name        :string(255)
-#  city        :string(255)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id               :integer          not null, primary key
+#  category_id      :integer
+#  name             :string(255)
+#  city             :string(255)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  discount_club_id :integer
 #
 
 class Venue < ActiveRecord::Base
@@ -16,5 +17,6 @@ class Venue < ActiveRecord::Base
   has_many :reviews
   has_many :discounts
   belongs_to :category
+  belongs_to :discount_club
 
 end
