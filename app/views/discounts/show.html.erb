@@ -1,0 +1,10 @@
+<h3><%= @discount.venue.name %></h3>
+<%= @discount.conditions %>
+<br/>
+<% if @discount.price %>
+    Precio: <%= @discount.price %>
+<% else %>
+    Descuento: <%= @discount.discount %> %
+<% end %>
+<br/>
+Forma de uso: <%= @discount.usage %>

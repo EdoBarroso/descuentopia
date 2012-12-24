@@ -9,10 +9,11 @@
 #  discount   :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  usage      :string(255)
 #
 
 class Discount < ActiveRecord::Base
-  attr_accessible :conditions, :discount, :price
+  attr_accessible :conditions, :discount, :price, :venue_id, :usage
   belongs_to :venue
 
   validates :venue_id, presence: true

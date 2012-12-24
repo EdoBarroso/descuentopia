@@ -1,17 +1,20 @@
-<h3>Mis Descuentos</h3>
+<% provide(:title, 'Descuentos') %>
+<h3>Mis Descuentos
+<% if can? :create, @discount %>
+    <%= link_to("Crear", new_discount_path, :class => 'btn btn-mini') %>
+<% end %>
+</h3>
 <% @discount_club.each do |t| %>
-    <%= t.name %>
-    <% if can? :create, @discount %>
-        <%= link_to("Crear", new_discount_path, :class => 'btn btn-mini') %>
-    <% end %>
+    <h4><%= t.name %></h4>
     <ul>
     <% t.discounts.each do |j| %>
           <li>
-            <%= j.venue_name %>
-            <%= simple_format j.conditions %>
-            <% if can? :destroy, @discount %>
+            <%= link_to j.venue_name, j %>
+            <% if can? :destroy, :edit, @discount %>
+                <%= link_to("Editar", edit_discount_path(j), :class => 'btn btn-mini') %>
                 <%= link_to("Eliminar", discount_path(j), :data => { :confirm => "¿Estás seguro?" }, :method => :delete, :class => 'btn btn-mini') %>
             <% end %>
+            <%= simple_format j.conditions %>
           </li>
     <% end %>
     </ul>
