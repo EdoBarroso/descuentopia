@@ -17,6 +17,7 @@ class Discount < ActiveRecord::Base
   belongs_to :venue
 
   validates :venue_id, presence: true
+  validates :conditions, presence: true
 
   delegate :name, to: :venue, prefix: true
 end

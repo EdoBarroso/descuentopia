@@ -17,9 +17,9 @@ class DiscountsController < ApplicationController
     authorize! :create, @discount, :message => 'No esta autorizado como administrador'
     @discount = Discount.new(params[:discount])
     if @discount.save
-      redirect_to discounts_path
+      redirect_to discounts_path, notice: "Descuento creado"
     else
-      render 'new'
+      render 'new', alert: "No se puede crear el descuento"
     end
   end
 
@@ -32,9 +32,9 @@ class DiscountsController < ApplicationController
     authorize! :update, @discount, :message => 'No esta autorizado como administrador'
     @discount = Discount.find(params[:id])
     if @discount.update_attributes(params[:discount])
-      redirect_to discount_path
+      redirect_to discount_path, notice: "Descuento actualizado"
     else
-      render 'edit'
+      render 'edit', alert: "No se puede editar el descuento"
     end
   end
 
@@ -42,6 +42,6 @@ class DiscountsController < ApplicationController
     authorize! :destroy, @discount, :message => 'No esta autorizado como administrador'
     discount = Discount.find(params[:id])
     discount.destroy
-    redirect_to venues_path, :notice => "Descuento eliminado"
+    redirect_to discounts_path, :notice => "Descuento eliminado"
   end
 end
