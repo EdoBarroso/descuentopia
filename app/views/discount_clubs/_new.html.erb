@@ -1,0 +1,15 @@
+<div id="new" class="modal" style="display: none;">
+  <%= simple_form_for @newclub, :url => discount_clubs_path, :html => {:method => :post, :class => 'form-horizontal' } do |f| %>
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&#215;</a>
+        <h3>Nuevo Club</h3>
+      </div>
+      <div class="modal-body">
+        <%= f.input :name %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Crear", :class => "btn" %>
+        <a class="btn" data-dismiss="modal" href="#">Close</a>
+      </div>
+  <% end %>
+</div>
