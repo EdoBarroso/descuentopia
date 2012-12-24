@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223231214) do
+ActiveRecord::Schema.define(:version => 20121224142327) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20121223231214) do
     t.string   "discount"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "usage"
   end
 
   add_index "discounts", ["venue_id"], :name => "index_discounts_on_venue_id"
@@ -117,7 +118,7 @@ ActiveRecord::Schema.define(:version => 20121223231214) do
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
-  create_table "discounts", :force => true do |t|
+  create_table "venues", :force => true do |t|
     t.integer  "category_id"
     t.string   "name"
     t.string   "city"

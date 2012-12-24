@@ -18,6 +18,10 @@ class DiscountsController < ApplicationController
     end
   end
 
+  def show
+    @discount = Discount.find(params[:id])
+  end
+
   def destroy
     authorize! :destroy, @discount, :message => 'No esta autorizado como administrador'
     discount = Discount.find(params[:id])

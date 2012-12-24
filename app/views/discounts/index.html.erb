@@ -4,11 +4,11 @@
 <% end %>
 </h3>
 <% @discount_club.each do |t| %>
-    <%= t.name %>
+    <h4><%= t.name %></h4>
     <ul>
     <% t.discounts.each do |j| %>
           <li>
-            <%= j.venue_name %>
+            <%= link_to j.venue_name, j %>
             <%= simple_format j.conditions %>
             <% if can? :destroy, @discount %>
                 <%= link_to("Eliminar", discount_path(j), :data => { :confirm => "¿Estás seguro?" }, :method => :delete, :class => 'btn btn-mini') %>

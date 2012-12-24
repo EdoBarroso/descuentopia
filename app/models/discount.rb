@@ -9,6 +9,7 @@
 #  discount   :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  usage      :string(255)
 #
 
 class Discount < ActiveRecord::Base
