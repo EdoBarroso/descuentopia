@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: venues
+# Table name: discounts
 #
 #  id               :integer          not null, primary key
 #  category_id      :integer
