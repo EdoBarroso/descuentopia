@@ -9,6 +9,15 @@ class DiscountsController < ApplicationController
     @discount = Discount.new
   end
 
+  def create
+    @discount = Discount.new(params[:discount])
+    if @discount.save
+      redirect_to discounts_path
+    else
+      render 'new'
+    end
+  end
+
   def destroy
     authorize! :destroy, @discount, :message => 'No esta autorizado como administrador'
     discount = Discount.find(params[:id])

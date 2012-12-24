@@ -12,7 +12,7 @@
 #
 
 class Discount < ActiveRecord::Base
-  attr_accessible :conditions, :discount, :price
+  attr_accessible :conditions, :discount, :price, :venue_id
   belongs_to :venue
 
   validates :venue_id, presence: true
