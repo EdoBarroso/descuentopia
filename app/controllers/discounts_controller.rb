@@ -9,8 +9,12 @@ class DiscountsController < ApplicationController
   end
 
   def new
-    authorize! :new, @discount, :message => 'No esta autorizado como administrador'
-    @discount = Discount.new
+    if DiscountClub.any?
+      authorize! :new, @discount, :message => 'No esta autorizado como administrador'
+      @discount = Discount.new
+    else
+      render 'index', alert: "No existen clubes de descuento"
+    end
   end
 
   def create
