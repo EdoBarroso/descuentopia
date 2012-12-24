@@ -1,4 +1,6 @@
 class DiscountClubsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     authorize! :index, @clubs, :message => 'No esta autorizado como administrador'
     @clubs = DiscountClub.all
