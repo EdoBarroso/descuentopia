@@ -14,7 +14,9 @@
         <tr>
           <td><%= club.name %></td>
           <td><%= club.created_at.to_date %></td>
-          <td><%= link_to("Editar Club", edit_discount_club_path(club), class: 'btn btn-mini') %></td>
+          <td><a data-toggle="modal" href="#edit-<%= club.id %>" class="btn btn-mini" type="button">Editar</a>
+            <%= render club %>
+          </td>
           <td><%= link_to("Eliminar Club", discount_club_path(club), data: { confirm: "¿Estás seguro?" }, method: :delete, class: 'btn btn-mini') %></td>
         </tr>
     <% end %>
