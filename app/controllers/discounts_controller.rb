@@ -4,12 +4,17 @@ class DiscountsController < ApplicationController
     @discount_club = current_user.discount_clubs
   end
 
+  def show
+    @discount = Discount.find(params[:id])
+  end
+
   def new
     authorize! :new, @discount, :message => 'No esta autorizado como administrador'
     @discount = Discount.new
   end
 
   def create
+    authorize! :create, @discount, :message => 'No esta autorizado como administrador'
     @discount = Discount.new(params[:discount])
     if @discount.save
       redirect_to discounts_path
@@ -18,8 +23,19 @@ class DiscountsController < ApplicationController
     end
   end
 
-  def show
+  def edit
+    authorize! :edit, @discount, :message => 'No esta autorizado como administrador'
     @discount = Discount.find(params[:id])
+  end
+
+  def update
+    authorize! :update, @discount, :message => 'No esta autorizado como administrador'
+    @discount = Discount.find(params[:id])
+    if @discount.update_attributes(params[:discount])
+      redirect_to discount_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
