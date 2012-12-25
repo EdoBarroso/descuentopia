@@ -1,6 +1,6 @@
 <% provide(:title, 'Iniciar Sesión') %>
 <h2>Inicia Sesión</h2>
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-signin' }) do |f| %>
   <%= f.input :email, :autofocus => true %>
   <%= f.input :password %>
   <%= f.input_field :remember_me, :inline_label => "Recuérdame", :as => :boolean if devise_mapping.rememberable? %>
