@@ -14,7 +14,7 @@
     </tr>
     </thead>
     <tbody>
-    <% @clubs.each do |club| %>
+    <% DiscountClub.all.each do |club| %>
         <tr>
           <td><%= club.name %></td>
           <td><%= club.created_at.to_date %></td>
