@@ -19,4 +19,8 @@ class Venue < ActiveRecord::Base
   belongs_to :category
   belongs_to :discount_club
 
+  validates :category_id, presence: true
+  validates :name, presence: true
+  validates :discount_club_id, presence: true
+
 end

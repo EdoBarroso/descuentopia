@@ -14,4 +14,6 @@ class Category < ActiveRecord::Base
 
   has_many :venues
   has_and_belongs_to_many :states
+
+  validates :name, presence: true
 end

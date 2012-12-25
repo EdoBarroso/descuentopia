@@ -12,4 +12,7 @@
 class Parameter < ActiveRecord::Base
   attr_accessible :content
   belongs_to :discount_club
+
+  validates :content, presence: true
+  validates :discount_club_id, presence: true
 end
