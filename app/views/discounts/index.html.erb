@@ -1,7 +1,8 @@
 <% provide(:title, 'Descuentos') %>
 <h3>Mis Descuentos
 <% if can? :create, @discount %>
-    <%= link_to("Crear", new_discount_path, :class => 'btn btn-mini') %>
+      <a data-toggle="modal" href="#new" class="btn btn-mini" type="button">Crear</a>
+      <%= render 'new' %>
 <% end %>
 </h3>
 <% @discount_club.each do |t| %>
@@ -11,7 +12,9 @@
           <li>
             <%= link_to j.venue_name, j %>
             <% if can? :destroy, :edit, @discount %>
-                <%= link_to("Editar", edit_discount_path(j), :class => 'btn btn-mini') %>
+                <td><a data-toggle="modal" href="#edit-<%= j.id %>" class="btn btn-mini" type="button">Editar</a>
+                  <%= render j %>
+                </td>
                 <%= link_to("Eliminar", discount_path(j), :data => { :confirm => "¿Estás seguro?" }, :method => :delete, :class => 'btn btn-mini') %>
             <% end %>
             <%= simple_format j.conditions %>

@@ -15,4 +15,6 @@ class DiscountClub < ActiveRecord::Base
   has_many :venues
   has_many :discounts, through: :venues
   has_and_belongs_to_many :users
+
+  validates :name, presence: true
 end
