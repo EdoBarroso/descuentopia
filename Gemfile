@@ -12,6 +12,7 @@ gem "figaro", ">= 0.5.0"
 gem 'jquery-rails'
 gem 'mechanize'
 gem 'activeadmin'
+gem 'activeadmin-cancan'
 
 group :development, :test do
   gem 'sqlite3'
