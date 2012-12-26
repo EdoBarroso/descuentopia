@@ -11,6 +11,7 @@ gem "simple_form", ">= 2.0.4"
 gem "figaro", ">= 0.5.0"
 gem 'jquery-rails'
 gem 'mechanize'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'sqlite3'
