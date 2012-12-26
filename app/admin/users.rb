@@ -16,7 +16,6 @@ ActiveAdmin.register User do
       f.input :email
       f.input :city
       f.input :phone
-      f.input :password
       f.input :discount_clubs
       f.input :roles
     end

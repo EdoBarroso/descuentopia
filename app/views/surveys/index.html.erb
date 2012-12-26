@@ -1,0 +1,6 @@
+<h3>Clubes de descuento a los que pertenezco</h3>
+<p>Marca todos los clubes a los que pertenezcas</p>
+<%= simple_form_for @user, :html => {method: :put, :class => 'form-horizontal' } do |f| %>
+    <%= f.association :discount_clubs, label: "Clubes de Descuento"  %>
+    <%= f.submit "Actualizar", :class => "btn" %>
+<% end %>
