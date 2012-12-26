@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    !if @user == current_user
+      redirect_to user_path(@user), alert: "No puedes editar a otro usuario"
+     end
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user], :as => :admin)
       redirect_to user_path(@user), :notice => "Usuario actualizado"

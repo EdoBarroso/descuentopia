@@ -1,6 +1,8 @@
 class SurveysController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
+
 end
