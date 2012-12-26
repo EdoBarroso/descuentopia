@@ -12,7 +12,7 @@
 #
 
 class Venue < ActiveRecord::Base
-  attr_accessible :city, :name
+  attr_accessible :city, :name, :discount_club_id, :category_id, as: :admin
 
   has_many :reviews
   has_many :discounts, dependent: :destroy

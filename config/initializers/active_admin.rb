@@ -1,5 +1,11 @@
 ActiveAdmin.setup do |config|
 
+  module ActiveAdmin
+    class BaseController
+      with_role :admin
+    end
+  end
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout

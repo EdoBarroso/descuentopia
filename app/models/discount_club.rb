@@ -9,7 +9,7 @@
 #
 
 class DiscountClub < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, as: :admin
 
   has_many :parameters, dependent: :destroy
   has_many :venues

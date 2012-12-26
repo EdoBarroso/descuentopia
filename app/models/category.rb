@@ -10,7 +10,7 @@
 #
 
 class Category < ActiveRecord::Base
-  attr_accessible :description, :name
+  attr_accessible :description, :name, as: :admin
 
   has_many :venues
   has_and_belongs_to_many :states

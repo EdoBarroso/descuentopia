@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :city, :phone
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :city, :phone, :as => [:default, :admin]
 
   has_and_belongs_to_many :discount_clubs
   has_many :venues, through: :discount_clubs

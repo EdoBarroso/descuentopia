@@ -10,7 +10,7 @@
 #
 
 class Parameter < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :discount_club_id, as: :admin
   belongs_to :discount_club
 
   validates :content, presence: true
