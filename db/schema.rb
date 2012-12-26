@@ -47,8 +47,9 @@ ActiveRecord::Schema.define(:version => 20121224142327) do
     t.string   "conditions"
     t.integer  "price"
     t.string   "discount"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "discount_club_id"
     t.string   "usage"
   end
 
@@ -122,9 +123,8 @@ ActiveRecord::Schema.define(:version => 20121224142327) do
     t.integer  "category_id"
     t.string   "name"
     t.string   "city"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.integer  "discount_club_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "venues", ["category_id"], :name => "index_venues_on_category_id"
