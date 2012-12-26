@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Tudescuento::Application.load_tasks
+Descuentopia::Application.load_tasks
