@@ -1,0 +1,13 @@
+<% provide(:title, 'Descuentos') %>
+<h3>Mis Descuentos</h3>
+<% @discount_club.each do |t| %>
+    <h4><%= t.name %></h4>
+    <ul>
+    <% t.discounts.each do |j| %>
+          <li>
+            <%= link_to j.venue_name, j %>
+            <%= simple_format j.conditions %>
+          </li>
+    <% end %>
+    </ul>
+<% end %>

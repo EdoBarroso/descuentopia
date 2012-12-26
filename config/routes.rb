@@ -5,4 +5,5 @@ Tudescuento::Application.routes.draw do
   
   devise_for :users
   resources :users, only: :show
+  resources :discounts, path: "descuentos", only: [:index, :show]
 end
