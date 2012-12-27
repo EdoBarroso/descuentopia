@@ -1,7 +1,13 @@
 Descuentopia::Application.routes.draw do
   ActiveAdmin.routes(self)
 
-  root :to => "home#index"
+  if Rails.env.production?
+    match "/" => redirect("http://soon.descuentopia.com")
+  else
+    root :to => 'home#index'
+  end
+
+
   
   devise_for :users
   resources :users, only: [:show, :update]
