@@ -8,7 +8,7 @@ Descuentopia::Application.routes.draw do
 
   devise_for :users
   resources :users, only: [:show, :update]
-  resources :surveys, path: "clubs", only: [:index]
+  resources :surveys, path: "clubes", only: [:index]
   resources :discounts, path: "descuentos", only: [:index, :show]
 
 end
