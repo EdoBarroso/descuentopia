@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.13'
 gem "bootstrap-sass", ">= 2.1.1.0"
 gem "bootstrap-will_paginate", ">=0.0.6"
 gem "devise", ">= 2.1.2"
@@ -10,8 +10,8 @@ gem "simple_form", ">= 2.0.4"
 gem "figaro", ">= 0.5.0"
 gem 'jquery-rails'
 gem 'mechanize'
-gem 'activeadmin'
-gem 'activeadmin-cancan'
+gem 'activeadmin', "~> 0.6.0"
+
 
 group :development, :test do
   gem 'sqlite3'
