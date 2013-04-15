@@ -6,6 +6,7 @@
   		<%= f.error_notification %>
   		<%= display_base_errors resource %>
   		<%= f.input :name, :autofocus => true, label: "Nombre" %>
+      <%= f.input :last_name, label: "Apellido" %>
   		<%= f.input :email, :required => true %>
         <%= f.input :city, label: "Ciudad" %>
         <%=	f.input :phone, label: "Teléfono", as: :string %>
