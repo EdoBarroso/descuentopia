@@ -12,7 +12,7 @@ class DiscountClub < ActiveRecord::Base
   attr_accessible :name, as: :admin
 
   has_many :parameters, dependent: :destroy
-  has_many :discounts, through: :venues
+  has_many :discounts
   has_and_belongs_to_many :venues
   has_and_belongs_to_many :users
 

@@ -10,7 +10,7 @@
 #
 
 class Venue < ActiveRecord::Base
-  attr_accessible :name, :category_id, as: :admin
+  attr_accessible :name, :category_id, :discount_club_ids, as: :admin
 
   has_many :reviews
   belongs_to :category
