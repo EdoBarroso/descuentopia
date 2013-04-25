@@ -1,4 +1,4 @@
-Descuentopia::Application.routes.draw do
+Tudescuento::Application.routes.draw do
   if Rails.env.production?
     match "/" => redirect("http://soon.descuentopia.com")
   else
