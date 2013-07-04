@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
 gem "bootstrap-sass", ">= 2.1.1.0"
 gem "bootstrap-will_paginate", ">=0.0.6"
 gem "devise", ">= 2.1.2"
@@ -11,7 +10,7 @@ gem "figaro", ">= 0.5.0"
 gem 'jquery-rails'
 gem 'mechanize'
 gem 'activeadmin', "~> 0.6.0"
-
+gem "json", "1.7.7"
 
 group :development, :test do
   gem 'sqlite3'
