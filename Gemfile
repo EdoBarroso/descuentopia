@@ -7,9 +7,9 @@ gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.4"
 gem "figaro", ">= 0.5.0"
-gem 'jquery-rails'
+gem "jquery-rails", "2.3.0"
 gem 'mechanize'
-gem 'activeadmin', "~> 0.6.0"
+gem 'activeadmin'
 gem "json", "1.7.7"
 
 group :development, :test do
